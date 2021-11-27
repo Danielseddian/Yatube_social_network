@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Записи пользователя {{ author.username }}{% endblock %}
+{% block header %}Записи пользователя {{ author.username }}{% endblock %}
+{% block content %}
+
+<main role="main" class="container">
+  <div class="row">
+    {% include 'includes/profile_block.html' with author=author following=following %}
+    <div class="col-md-9">
+      {% include 'includes/post_item.html' with post=post %}
+      {% include 'includes/comments.html' with form=form page=page post=post %}
+    </div>
+  </div>
+</main>
+{% endblock %}
